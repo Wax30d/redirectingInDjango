@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import *
-from django.views.generic.base import RedirectView
+# from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('wax30d/', index),
     path('redirect/', redirectFunction),
     path('ggg/', redirectFunction),
-    path("myGithub/", github.as_view())
+    path("myGithub/", github.as_view()),
+    path("github/", RedirectView.as_view(url="https://github.com"))
 ]
